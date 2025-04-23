@@ -27,10 +27,4 @@ jobs:
       run: npx tsc --noEmit
 
     - name: Build
-      run: npm run build
-
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: build-files
-        path: dist/ 
+      run: npm run build 
