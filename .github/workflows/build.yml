@@ -22,8 +22,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Install axios properly
-      run: npm uninstall axios && npm install axios && npm install --save-dev @types/node
-
     - name: Build
       run: npm run build 
