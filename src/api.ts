@@ -19,7 +19,7 @@ interface Post {
  */
 export const getUsers = async (): Promise<User[]> => {
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    const response = await axios.get<User[]>('https://jsonplaceholder.typicode.com/users');
     return response.data;
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -33,7 +33,7 @@ export const getUsers = async (): Promise<User[]> => {
  */
 export const getPosts = async (): Promise<Post[]> => {
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    const response = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
     return response.data;
   } catch (error) {
     console.error('Error fetching posts:', error);
