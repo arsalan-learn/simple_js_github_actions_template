@@ -37,4 +37,4 @@ jobs:
         namespace: "arsalan-learn"
         enable_github_action_token: true
         scan_dependencies: true
-        additional_args: "--ai-models"
+        additional_args: "--ai-models --pr=false"
