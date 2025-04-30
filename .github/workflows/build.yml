@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ENDOR_PNPM_ENABLED: true
 
     steps:
     - name: Checkout repository
@@ -19,14 +21,20 @@ jobs:
       with:
         node-version: '18'
 
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+        run_install: false
+
     - name: Install dependencies
-      run: npm install
+      run: pnpm install
 
     - name: Install Semgrep
       run: pip install semgrep==1.99.0
 
     - name: Build
-      run: npm run build
+      run: pnpm run build
 
     - name: Endor Labs SCA Scan
       uses: endorlabs/github-action@v1.1.8
