@@ -42,4 +42,5 @@ jobs:
         namespace: "arsalan-learn"
         enable_github_action_token: true
         scan_dependencies: true
+        pr: false
         additional_args: "--as-default-branch --ai-models"
