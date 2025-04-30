@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENDOR_PNPM_ENABLED: true
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
     - name: Checkout repository
@@ -37,10 +40,9 @@ jobs:
       run: pnpm run build
 
     - name: Endor Labs SCA Scan
-      uses: endorlabs/github-action@v1.1.8
+      uses: endorlabs/github-action@main
       with:
         namespace: "arsalan-learn"
         enable_github_action_token: true
         scan_dependencies: true
-        pr: false
-        additional_args: "--as-default-branch --ai-models"
+        additional_args: "--ai-models --pr=false"
